@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.crudreact</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>Back-End</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>crudreactspring</name>
+	<name>Back-End</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>

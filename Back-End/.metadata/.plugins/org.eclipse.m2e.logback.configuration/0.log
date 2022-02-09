@@ -789,3 +789,11 @@
 2022-02-09 17:21:25,506 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2022-02-09 17:21:25,506 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2022-02-09 17:21:25,506 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\beman\VsCodeProjects\ProjetosGit\crudCadastroPessoas\Back-End\demo\src\test\resources
+2022-02-09 18:14:16,932 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-02-09 18:14:16,943 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-02-09 18:14:16,943 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\beman\VsCodeProjects\ProjetosGit\crudCadastroPessoas\Back-End\demo\src\main\resources
+2022-02-09 18:14:16,943 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\beman\VsCodeProjects\ProjetosGit\crudCadastroPessoas\Back-End\demo\src\main\resources
+2022-02-09 18:14:16,952 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-02-09 18:14:16,952 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-02-09 18:14:16,953 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\beman\VsCodeProjects\ProjetosGit\crudCadastroPessoas\Back-End\demo\src\test\resources
+2022-02-09 18:20:35,752 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
