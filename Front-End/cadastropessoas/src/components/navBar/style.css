@@ -1,0 +1,21 @@
+.container-fluid{
+    display: flex;
+
+}
+
+.link-gitHub {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+  }
+  
+  .link-gitHub svg {
+    margin: 10px;
+  }
+  
+  .link-gitHub > p {
+    height: 5px;
+    position: relative;
+    right: 0px;
+    color: #fff;
+  }
