@@ -1,0 +1,5 @@
+package com.crudreact.demo.entities;
+
+public class Pessoa {
+
+}

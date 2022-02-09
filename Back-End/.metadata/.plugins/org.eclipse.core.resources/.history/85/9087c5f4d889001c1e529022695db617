@@ -1,0 +1,14 @@
+package com.crudreact.demo.entities;
+
+
+@Entity
+public class Pessoa {
+	
+	
+	private String Cpf;
+	private String email;
+	private String nome;
+	
+	
+
+}
