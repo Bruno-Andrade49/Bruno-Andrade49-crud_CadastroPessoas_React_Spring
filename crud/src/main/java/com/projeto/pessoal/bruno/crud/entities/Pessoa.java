@@ -5,11 +5,8 @@ import javax.persistence.Id;
 
 import org.springframework.stereotype.Repository;
 
-import lombok.NoArgsConstructor;
-
 @Repository
 @Entity
-@NoArgsConstructor
 public class Pessoa {
 
 	@Id
