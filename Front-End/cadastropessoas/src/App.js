@@ -16,28 +16,33 @@ import {
 
 class App extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      pessoas: [
-        {
-          email: "b.emanueandrade",
-          nome: "Bruno Andrade",
-          estado: "a"
-        }
-      ]
-    }
+  Url = "https://crudcadastropessoas.herokuapp.com/pessoas"
+
+  UrlPost = "https://crudcadastropessoas.herokuapp.com/cadastro"
+
+  state = {
+    pessoas: []
   }
 
-  criarPessoa(email, nome, estado) {
-    const novaPessoa = { email, nome, estado };
-    const novoArrayPessoas = [...this.state.pessoas, novaPessoa]
-    const novoEstado = {
-      pessoas: novoArrayPessoas
-    }
-    this.setState(novoEstado)
-    console.log(this.state.pessoas)
+  componentDidMount() {
+    fetch(this.UrlPost)
+    .then(response => response.json())
+    .then(pessoas => this.setState({ pessoas }))
+    .catch(e => console.log(e))
+  }
 
+  criarPessoa = (pessoa) => {
+    const requestInfo = {
+      method: 'POST',
+      body: JSON.stringify(pessoa),
+      headers: new Headers({
+        "content-type": "aplication/json"
+      })
+    };
+    fetch(this.UrlPost, requestInfo)
+    .then(response => response.json())
+    .thent(newPessoa => console.log(newPessoa))
+    .catch(e => console.log(e))
   }
 
   render() {
@@ -62,7 +67,7 @@ class App extends Component {
 
           <Routes>
             <Route path='/pessoas' element={<PageListagem pessoas={this.state.pessoas} />} />
-            <Route path='/formulario' element={<Formulario criarPessoa={this.criarPessoa.bind(this)} />} />
+            <Route path='/formulario' element={<Formulario pessoaCreate={this.save} />} />
             <Route path='/' element={<BoaVinda />} />
 
 
