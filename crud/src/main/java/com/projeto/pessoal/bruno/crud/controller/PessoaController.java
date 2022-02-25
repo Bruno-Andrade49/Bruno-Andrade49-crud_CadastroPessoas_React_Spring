@@ -18,6 +18,9 @@ import com.projeto.pessoal.bruno.crud.entities.Pessoa;
 import com.projeto.pessoal.bruno.crud.repositorys.PessoaRepository;
 
 @RestController
+@CrossOrigin(origins="http://localhost:3000",
+methods = {RequestMethod.PUT, RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE, RequestMethod.OPTIONS}
+)
 public class PessoaController {
 	
 
