@@ -26,7 +26,7 @@ public class PessoaController {
 
 		
 		//GET
-		@CrossOrigin(methods = RequestMethod.GET)
+		@CrossOrigin(methods = RequestMethod.GET, origins = "http://localhost:3000")
 		@GetMapping(path = "/pessoas")
 		@ResponseStatus(value = HttpStatus.FOUND)
 		public List<Pessoa> getAllPessoas() {
@@ -35,7 +35,7 @@ public class PessoaController {
 
 		
 		//POST
-		@CrossOrigin(methods = RequestMethod.POST)
+		@CrossOrigin(methods = RequestMethod.POST, origins = "http://localhost:3000")
 		@PostMapping(path = "/cadastro")
 		@ResponseStatus(value = HttpStatus.CREATED)
 		public Pessoa criarPessoa(@RequestBody Pessoa pessoa) {
@@ -44,7 +44,7 @@ public class PessoaController {
 
 		
 		//DELETE
-		@CrossOrigin(methods = RequestMethod.DELETE)
+		@CrossOrigin(methods = RequestMethod.DELETE, origins = "http://localhost:3000")
 		@PutMapping(path = "/cadastro/{idPessoa}")
 		@ResponseStatus(value = HttpStatus.OK)
 		public void deletarPessoa(@PathVariable String idPessoa) {
@@ -54,7 +54,7 @@ public class PessoaController {
 
 		
 		//EDIT
-		@CrossOrigin(methods = RequestMethod.PUT)
+		@CrossOrigin(methods = RequestMethod.PUT, origins = "http://localhost:3000")
 		@PutMapping(path = "/cadastro/{idPessoa}/edit")
 		@ResponseStatus(value = HttpStatus.OK)
 		public void editarPessoa(@PathVariable String idPessoa, @RequestBody Pessoa pessoa) {
