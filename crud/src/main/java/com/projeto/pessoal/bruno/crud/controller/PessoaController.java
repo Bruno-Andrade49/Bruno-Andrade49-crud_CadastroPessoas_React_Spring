@@ -24,12 +24,16 @@ public class PessoaController {
 		PessoaRepository pessoaRepository;
 
 		
+		//GET
+		
 		@GetMapping(path = "/pessoas")
 		@ResponseStatus(value = HttpStatus.FOUND)
 		public List<Pessoa> getAllPessoas() {
 			return pessoaRepository.findAll();
 		}
 
+		
+		//POST
 		@CrossOrigin("http://localhost:3000")
 		@PostMapping(path = "/cadastro")
 		@ResponseStatus(value = HttpStatus.CREATED)
@@ -37,6 +41,9 @@ public class PessoaController {
 			return pessoaRepository.save(pessoa);
 		}
 
+		
+		//DELETE
+		@CrossOrigin("http://localhost:3000")
 		@PutMapping(path = "/cadastro/{idPessoa}")
 		@ResponseStatus(value = HttpStatus.OK)
 		public void deletarPessoa(@PathVariable String idPessoa) {
@@ -44,6 +51,9 @@ public class PessoaController {
 			pessoaRepository.delete(pessoa);
 		}
 
+		
+		//EDIT
+		@CrossOrigin("http://localhost:3000")
 		@PutMapping(path = "/cadastro/{idPessoa}/edit")
 		@ResponseStatus(value = HttpStatus.OK)
 		public void editarPessoa(@PathVariable String idPessoa, @RequestBody Pessoa pessoa) {
