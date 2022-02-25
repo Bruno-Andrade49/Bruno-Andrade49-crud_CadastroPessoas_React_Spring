@@ -10,10 +10,7 @@ import org.springframework.web.cors.CorsUtils;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("a").password("a").roles("USER");
-    }
+   
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
