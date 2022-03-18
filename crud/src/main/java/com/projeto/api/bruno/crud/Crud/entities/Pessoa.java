@@ -1,15 +1,13 @@
 package com.projeto.api.bruno.crud.Crud.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class Pessoa {
 
-	@NotNull
+	@NotNull @Id
 	private String cpf;
 
 	@NotNull

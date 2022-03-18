@@ -47,11 +47,11 @@ public class PessoaController {
 		return ResponseEntity.ok().build();
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("/{cpf}")
 	@Transactional
-	public ResponseEntity<Pessoa> editarPessoa(@Valid @PathVariable Long id, @RequestBody(required = true) PessoaAtualizacao pessoaAtualizacao){
+	public ResponseEntity<Pessoa> editarPessoa(@Valid @PathVariable String cpf, @RequestBody(required = true) PessoaAtualizacao pessoaAtualizacao){
 		
-		Pessoa pessoa = pessoaRepository.findById(id).get();
+		Pessoa pessoa = pessoaRepository.findByCpf(cpf);
 		pessoa.setEmail(pessoaAtualizacao.converter().getEmail());
 		pessoa.setEstado(pessoaAtualizacao.converter().getEstado());
 		
@@ -59,10 +59,11 @@ public class PessoaController {
 		
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/{cpf}")
 	@Transactional
-	public ResponseEntity<Pessoa> deletarPessoa(@PathVariable Long id) {
-		pessoaRepository.deleteById(id);
+	public ResponseEntity<Pessoa> deletarPessoa(@PathVariable String cpf) {
+		Pessoa pessoa = pessoaRepository.findByCpf(cpf);
+		pessoaRepository.delete(pessoa);
 		
 		return ResponseEntity.ok().build();
 	}
