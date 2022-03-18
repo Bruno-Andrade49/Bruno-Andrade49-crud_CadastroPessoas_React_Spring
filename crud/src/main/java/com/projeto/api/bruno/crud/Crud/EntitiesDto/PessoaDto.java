@@ -1,5 +1,6 @@
 package com.projeto.api.bruno.crud.Crud.EntitiesDto;
 
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 import com.projeto.api.bruno.crud.Crud.entities.EstadoServico;
@@ -7,7 +8,7 @@ import com.projeto.api.bruno.crud.Crud.entities.Pessoa;
 
 public class PessoaDto {
 
-	@NotNull
+	@NotNull @Id
 	private String cpf;
 
 	@NotNull
