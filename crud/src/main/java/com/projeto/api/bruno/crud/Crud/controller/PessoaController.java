@@ -30,8 +30,6 @@ public class PessoaController {
 	@Autowired
 	PessoaRepository pessoaRepository;
 	
-	
-	
 	@GetMapping
 	public Page<Pessoa> listarPessoas(@Valid @PageableDefault(sort = "cpf", direction = Direction.DESC,
 	size = 10) Pageable page) {
@@ -40,7 +38,6 @@ public class PessoaController {
 	}
 	
 	@PostMapping
-	@Transactional
 	public ResponseEntity<Pessoa> addPessoa(@Valid @RequestBody(required = true) PessoaDto pessoa) {
 		
 		Pessoa pessoaEnt = pessoa.converter();

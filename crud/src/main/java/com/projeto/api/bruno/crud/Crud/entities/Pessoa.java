@@ -9,10 +9,6 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Pessoa {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
 	@NotNull
 	private String cpf;
 
@@ -40,14 +36,6 @@ public class Pessoa {
 	public Pessoa(@NotNull String email, @NotNull EstadoServico estado) {
 		this.email = email;
 		this.estado = estado;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public EstadoServico getEstado() {
