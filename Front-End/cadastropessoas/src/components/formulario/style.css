@@ -1,9 +1,21 @@
+.form{
+    padding: 5%;
+}
+
 .formulario {
-    align-items: center;
-    padding: 15%;
+    
+    padding: 5%;
 }
 
 .formularioTitulo {
     margin-top: 50px;
     margin-bottom: -60px;
+}
+
+.Button{
+    padding:10%;
+}
+
+.titulo {
+    padding: 5%;
 }

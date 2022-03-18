@@ -11,8 +11,8 @@ function NavBar() {
             <div className="container-fluid">
                 <section>
                     <a class="navbar-brand" href="/">BR Cadastros</a>
-                    <a class="navbar-brand" href="/formulario"> Cadastro </a>
-                    <a class="navbar-brand" href="/pessoas" >Pessoas</a>
+                    <a class="navbar-brand" href="/formulario"> Realiazar Cadastro </a>
+                
                 </section>
                 <a href="https://github.com/Bruno-Andrade49" target="_blank" className="github-link">
                     <div className="link-gitHub">

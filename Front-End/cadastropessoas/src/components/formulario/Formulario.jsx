@@ -1,72 +1,71 @@
-import React, { Component } from 'react';
-import "./style.css"
-import TituloFormulario from "./TituloFormulario"
+import React, { useEffect, useState } from "react";
+import FormularioCadastro from "./FormularioCadastro";
+import FormularioEndereco from "../Formulario/FormularioEndereco";
+import Titulo from "../title/Titulo"
+import { Typography, Stepper, Step, StepLabel, Container  } from "@mui/material";
 
-class Formulario extends Component {
 
-    state = { 
-        model:  {
-            cpf: '', 
-            email: '', 
-            nome: ''
+
+
+
+function Formulario({ aoEnviar }) {
+    const [etapaAtual, setEtapaAtual] = useState(0);
+    const [dadosColetados, setDadosColetados] = useState([]);
+
+    const formularios = [
+        <FormularioCadastro aoEnviar={coletarDados} />,
+        <FormularioEndereco aoEnviar={coletarDados} naoEnviar={voltar} />,
+        
+        <Typography variant='h5'>Obrigado pelo Cadastro!!</Typography>,
+
+    ]
+
+    useEffect(() => {
+        if(etapaAtual > 1) {
+            aoEnviar(dadosColetados)
+            
         }
-    };
+    })
 
-    setValues = (e, field) => {
-        const {model} = this.state;
-        model[field] = e.target.value;
-        this.setState({model});
+    
+
+
+    function proximo() {
+        setEtapaAtual(etapaAtual + 1)
     }
 
-    save = (pessoa) => {
-        let data = {
-            cpf : this.state.model.cpf,
-            email: this.state.model.email,
-            nome: this.state.model.nome
-        };
-        this.props.pessoaCreate(data);
+    function voltar() {
+        setEtapaAtual(etapaAtual - 1)
     }
 
-
-        render() {
-            return (
-            <>
-                <TituloFormulario />
-                <form className="formulario">
-                    <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label">Nome Completo</label>
-                        <div class="col-sm-10">
-                            <input id='name' class="form-control" placeholder="Digite seu nome..."
-                            value={this.state.model.nome}
-                            onChange={e => this.setValues(e, "nome")}/>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
-                            <input id='email' type="email" class="form-control" id="inputEmail3" placeholder="Digite seu email..."
-                            value={this.state.model.email}
-                            onChange={e => this.setValues(e, "email")}/>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label">CPF</label>
-                        <div class="col-sm-10">
-                            <input id='nome' class="form-control" placeholder="Digite seu CPF..."
-                            value={this.state.model.cpf}
-                            onChange={e => this.setValues(e, "cpf")}/>
-                        </div>
-                    </div>
-
-                </form>
-                <button class="btn btn-primary" block onClick={this.create}> Salvar </button>
-
-
-            </>
-
-        )
+    function coletarDados(dados){
+        setDadosColetados({...dadosColetados, ...dados})
+        proximo();
     }
+
+    return (
+        <>
+            <Titulo/>
+            <Container maxWidth="sm">
+            <Stepper activeStep={etapaAtual}>
+                <Step>
+                    <StepLabel> Login </StepLabel>
+                </Step>
+                <Step>
+                    <StepLabel> Endereço </StepLabel>
+                </Step>   
+                <Step>
+                    <StepLabel> Finalização </StepLabel>
+                </Step>   
+                
+            
+            </Stepper>
+            {formularios[etapaAtual]}
+            </Container>
+        </>
+    );
+
+
 }
-
 
 export default Formulario;
