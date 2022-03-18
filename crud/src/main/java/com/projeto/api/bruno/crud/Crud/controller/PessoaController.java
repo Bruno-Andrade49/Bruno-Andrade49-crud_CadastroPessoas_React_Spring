@@ -26,13 +26,13 @@ import com.projeto.api.bruno.crud.Crud.repositories.PessoaRepository;
 
 @RestController
 @RequestMapping(path = "/pessoas")
-@CrossOrigin(originPatterns = "http://localhost:3000")
 public class PessoaController {
 	
 	@Autowired
 	PessoaRepository pessoaRepository;
 	
 	@GetMapping
+	@CrossOrigin(origins = "http://localhost:3000")
 	public Page<Pessoa> listarPessoas(@Valid @PageableDefault(sort = "cpf", direction = Direction.DESC,
 	size = 10) Pageable page) {
 		Page<Pessoa> pessoas = pessoaRepository.findAll(page);
@@ -40,6 +40,7 @@ public class PessoaController {
 	}
 	
 	@PostMapping
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<Pessoa> addPessoa(@Valid @RequestBody(required = true) PessoaDto pessoa) {
 		
 		Pessoa pessoaEnt = pessoa.converter();
@@ -51,6 +52,7 @@ public class PessoaController {
 	
 	@PutMapping("/{cpf}")
 	@Transactional
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<Pessoa> editarPessoa(@Valid @PathVariable String cpf, @RequestBody(required = true) PessoaAtualizacao pessoaAtualizacao){
 		
 		Pessoa pessoa = pessoaRepository.findByCpf(cpf);
@@ -63,6 +65,7 @@ public class PessoaController {
 	
 	@DeleteMapping("/{cpf}")
 	@Transactional
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<Pessoa> deletarPessoa(@PathVariable String cpf) {
 		Pessoa pessoa = pessoaRepository.findByCpf(cpf);
 		pessoaRepository.delete(pessoa);
