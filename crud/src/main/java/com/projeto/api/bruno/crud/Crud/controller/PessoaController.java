@@ -6,10 +6,6 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort.Direction;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -35,8 +31,7 @@ public class PessoaController {
 
 	@CrossOrigin
 	@GetMapping
-	public List<Pessoa> listarPessoas(
-			@Valid @PageableDefault(sort = "cpf", direction = Direction.DESC, size = 10) ) {
+	public List<Pessoa> listarPessoas(){
 		List<Pessoa> pessoas = pessoaRepository.findAll();
 		return pessoas;
 	}
