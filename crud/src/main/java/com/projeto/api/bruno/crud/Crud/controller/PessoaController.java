@@ -27,54 +27,51 @@ import com.projeto.api.bruno.crud.Crud.repositories.PessoaRepository;
 @RestController
 @RequestMapping(path = "/pessoas")
 public class PessoaController {
-	
+
 	@Autowired
 	PessoaRepository pessoaRepository;
-	
+
+	@CrossOrigin
 	@GetMapping
-	@CrossOrigin(origins = "http://localhost:3000")
-	public Page<Pessoa> listarPessoas(@Valid @PageableDefault(sort = "cpf", direction = Direction.DESC,
-	size = 10) Pageable page) {
+	public Page<Pessoa> listarPessoas(
+			@Valid @PageableDefault(sort = "cpf", direction = Direction.DESC, size = 10) Pageable page) {
 		Page<Pessoa> pessoas = pessoaRepository.findAll(page);
 		return pessoas;
 	}
-	
+
+	@CrossOrigin
 	@PostMapping
-	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<Pessoa> addPessoa(@Valid @RequestBody(required = true) PessoaDto pessoa) {
-		
+
 		Pessoa pessoaEnt = pessoa.converter();
-		
+
 		pessoaRepository.save(pessoaEnt);
 
 		return ResponseEntity.ok().build();
 	}
-	
+
+	@CrossOrigin
 	@PutMapping("/{cpf}")
 	@Transactional
-	@CrossOrigin(origins = "http://localhost:3000")
-	public ResponseEntity<Pessoa> editarPessoa(@Valid @PathVariable String cpf, @RequestBody(required = true) PessoaAtualizacao pessoaAtualizacao){
-		
+	public ResponseEntity<Pessoa> editarPessoa(@Valid @PathVariable String cpf,
+			@RequestBody(required = true) PessoaAtualizacao pessoaAtualizacao) {
+
 		Pessoa pessoa = pessoaRepository.findByCpf(cpf);
 		pessoa.setEmail(pessoaAtualizacao.converter().getEmail());
 		pessoa.setEstado(pessoaAtualizacao.converter().getEstado());
-		
+
 		return ResponseEntity.ok().build();
-		
+
 	}
-	
+
+	@CrossOrigin
 	@DeleteMapping("/{cpf}")
 	@Transactional
-	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<Pessoa> deletarPessoa(@PathVariable String cpf) {
 		Pessoa pessoa = pessoaRepository.findByCpf(cpf);
 		pessoaRepository.delete(pessoa);
-		
+
 		return ResponseEntity.ok().build();
 	}
-	
-
-	
-	
 
 }
