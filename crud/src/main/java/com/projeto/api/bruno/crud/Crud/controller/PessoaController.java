@@ -1,5 +1,7 @@
 package com.projeto.api.bruno.crud.Crud.controller;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -33,9 +35,9 @@ public class PessoaController {
 
 	@CrossOrigin
 	@GetMapping
-	public Page<Pessoa> listarPessoas(
-			@Valid @PageableDefault(sort = "cpf", direction = Direction.DESC, size = 10) Pageable page) {
-		Page<Pessoa> pessoas = pessoaRepository.findAll(page);
+	public List<Pessoa> listarPessoas(
+			@Valid @PageableDefault(sort = "cpf", direction = Direction.DESC, size = 10) ) {
+		List<Pessoa> pessoas = pessoaRepository.findAll();
 		return pessoas;
 	}
 
